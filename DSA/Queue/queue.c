@@ -14,7 +14,7 @@ int FRONT = -1 , REAR = -1;
 
 /*
  * A queue is a structure that contains an array of integers.
- * @property {int} items - This is the array that holds the items in the queue.
+ * property {int} items - This is the array that holds the items in the queue.
  */
 typedef struct queue
 {
@@ -53,9 +53,9 @@ int main(void)
 /*
  * It checks if the queue is full.
  * 
- * @param Queue_1 The queue that we want to check if it's full or not.
+ * param Queue_1 The queue that we want to check if it's full or not.
  * 
- * @return a boolean value.
+ * return a boolean value.
  */
 
 
@@ -82,7 +82,7 @@ void enqueue(queue *Queue_1, int new_item)
  * If the queue is not empty, then print the element at the front of the queue and increment the front
  * index
  * 
- * @param Queue_1 The queue that you want to dequeue from.
+ * param Queue_1 The queue that you want to dequeue from.
  */
 void dequeue(queue *Queue_1)
 {
