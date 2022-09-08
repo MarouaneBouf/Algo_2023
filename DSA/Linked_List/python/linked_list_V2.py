@@ -33,6 +33,24 @@ class Linked_list:
             temp = temp.next
         # Assigning the value of the next node to the variable temp.
         temp.next = new_node
+        
+        
+    def insert(self, new_item, cible):
+        """
+        It creates a new node, sets its data to the new item, and then finds the node with the data
+        equal to the cible, and then sets the new node's next to the cible's next, and then sets the
+        cible's next to the new node
+        
+        :param new_item: the item to be inserted
+        :param cible: the item you want to insert after
+        """
+        new_node = node()
+        new_node.data = new_item
+        temp = self.head
+        while(temp.data != cible):
+            temp = temp.next
+        new_node.next = temp.next
+        temp.next = new_node
  
         
     # It prints the value of the variable self.   
@@ -56,7 +74,9 @@ def main():
     
     # Adding the value of 9921 to the linked list.
     Link_Nodes.append(9921)
-
+    
+    Link_Nodes.insert(20,872)
+    
     # Printing the value of the variable self.
     Link_Nodes.display()
     
