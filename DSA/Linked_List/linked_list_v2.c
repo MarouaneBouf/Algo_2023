@@ -18,6 +18,7 @@ typedef struct node
 /* Passing the address of the pointer to the first node in the linked list. */
 void push(node **head, int item);
 void append(node **head, int item);
+void insert(node **head, int item, int cible);
 
 int main(void)
 {
@@ -26,7 +27,10 @@ int main(void)
     /* Passing the address of the pointer to the first node in the linked list. */
     push(&list,172);
     append(&list,82);
-
+    append(&list,462);
+    append(&list,473);
+    append(&list,32094);
+    insert(&list, 999,473);
     /* Traversing the linked list. */
     for(node *tmp = list; tmp != NULL; tmp = tmp->next)
     {
@@ -73,4 +77,23 @@ void append(node **head, int item)
         /* Assigning the address of the new node to the pointer to the next node in the linked list. */
         tmp->next = n; 
     }
+}
+
+
+/* Insert a node at a certain position */
+void insert(node **head, int item, int cible)
+{
+    node *n = malloc(sizeof(node));
+    /* Assigning the value of the variable `item` to the data field of the node `n`. */
+    n->data = item;
+    node *tmp = *head;
+    /* Traversing the linked list until it finds the node that contains the value of the variable
+    `cible`. */
+    while(tmp->next->data != cible)
+    {
+        tmp = tmp->next;
+    }
+    /* Assigning the address of the new node to the pointer to the next node in the linked list. */
+    n->next = tmp->next;
+    tmp->next = n;
 }
