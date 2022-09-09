@@ -103,6 +103,13 @@ void insert(node **head, int item, int cible)
     while(tmp->next->data != cible)
     {
         tmp = tmp->next;
+         // Defensive snippet
+        /* Checking if the cible is the last node in the linked list. */
+        if(temp->next == NULL)
+        {
+            fprintf(stdout,"Node unavailable after the cible chosen!!\n");
+            exit(EXIT_FAILURE);
+        }
     }
     /* Assigning the address of the new node to the pointer to the next node in the linked list. */
     n->next = tmp->next;
