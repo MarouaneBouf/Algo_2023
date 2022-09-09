@@ -108,6 +108,7 @@ void insert(node **head, int item, int cible)
         if(temp->next == NULL)
         {
             fprintf(stdout,"Node unavailable after the cible chosen!!\n");
+            /* It's a function that terminates the program. */
             exit(EXIT_FAILURE);
         }
     }
