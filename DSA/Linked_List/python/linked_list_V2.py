@@ -34,6 +34,24 @@ class Linked_list:
         # Assigning the value of the next node to the variable temp.
         temp.next = new_node
         
+    # Delete the first element of the linked list
+    def delete_1(self):
+        self.head = self.head.next
+    
+    # Delete the last element from the linked list    
+    def delete_2(self):
+        temp = self.head
+        while(temp.next.next != None):
+            temp = temp.next
+        temp.next = None
+        
+    # Delete a specific node from the linked list byt its data
+    def delete_3(self, cible):
+        temp = self.head
+        while(temp.next.data != cible):
+            temp = temp.next
+        temp.next = temp.next.next
+        
         
     def insert(self, new_item, cible):
         """
@@ -77,7 +95,18 @@ def main():
     
     Link_Nodes.insert(20,872)
     
+    print("Before deleting the first element")
     # Printing the value of the variable self.
+    Link_Nodes.display()
+    
+    print("After deleting the first element")
+    # Deleting the first element
+    Link_Nodes.delete_1()
+    # Deleting the last element
+    Link_Nodes.delete_2()
+    # Deleting an element at a specific position
+    Link_Nodes.delete_3(1020)
+    
     Link_Nodes.display()
     
     
