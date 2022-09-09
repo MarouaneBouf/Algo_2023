@@ -19,6 +19,11 @@ typedef struct node
 void push(node **head, int item);
 void append(node **head, int item);
 void insert(node **head, int item, int cible);
+void delete_1(node **head);
+void delete_2(node **head);
+void delete_3(node **head, int cible);
+void display(node **head);
+
 
 int main(void)
 {
@@ -31,11 +36,17 @@ int main(void)
     append(&list,473);
     append(&list,32094);
     insert(&list, 999,473);
-    /* Traversing the linked list. */
-    for(node *tmp = list; tmp != NULL; tmp = tmp->next)
-    {
-        printf("%i\n",tmp->data);
-    }
+    fprintf(stdout,"\tBefore deleting the first/last element:\n");
+    display(&list);
+
+    delete_1(&list);
+    delete_2(&list);
+    delete_3(&list,473);
+    printf("-----------------\n\tAfter Deleting the first/last element:\n");
+
+    display(&list);
+
+
     return 0;
 }
 
@@ -96,4 +107,45 @@ void insert(node **head, int item, int cible)
     /* Assigning the address of the new node to the pointer to the next node in the linked list. */
     n->next = tmp->next;
     tmp->next = n;
+}
+
+
+// Delete the first element of the linked list
+void delete_1(node **head)
+{
+    // Store the node that's going to be deleted from the list to free it.
+    node *temp = (*head);
+    (*head) = (*head)->next;
+    free(temp);
+}
+
+
+/* Delete the last node of the linked list */
+void delete_2(node **head)
+{
+    node *temp = *head;
+    for(;temp->next->next != NULL; temp = temp->next);
+    temp->next = NULL;
+}
+
+
+// Delete a node at a certain position
+void delete_3(node **head, int cible)
+{
+    node *tmp = *head;
+    while(tmp->next->data != cible)
+    {
+        tmp = tmp->next;
+    }
+    tmp->next = tmp->next->next;
+}
+
+// Displaying the elements of the linked list
+void display(node **head)
+{
+    /* Traversing the linked list. */
+    for(node *tmp = *head; tmp != NULL; tmp = tmp->next)
+    {
+        printf("%i\n",tmp->data);
+    }
 }
