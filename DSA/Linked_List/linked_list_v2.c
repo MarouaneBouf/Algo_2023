@@ -23,7 +23,7 @@ void delete_1(node **head);
 void delete_2(node **head);
 void delete_3(node **head, int cible);
 void display(node **head);
-
+node *reverse(node *head);
 
 int main(void)
 {
@@ -35,18 +35,21 @@ int main(void)
     append(&list,462);
     append(&list,473);
     append(&list,32094);
-    insert(&list, 999,473);
-    fprintf(stdout,"\tBefore deleting the first/last element:\n");
+    fprintf(stdout,"Before Reversing:\n");
     display(&list);
+    // Reversing the list
+    printf("\n---------------\nReversed List:\n");
+    node *new_head = reverse(list);
+    display(&new_head);
 
-    delete_1(&list);
-    delete_2(&list);
-    delete_3(&list,473);
-    printf("-----------------\n\tAfter Deleting the first/last element:\n");
-
-    display(&list);
-
-
+    /* It's freeing the memory allocated for the nodes in the linked list. */
+    while (new_head != NULL)
+    {
+        node *temp = new_head->next;
+        free(new_head);
+        new_head = temp;
+    }
+    
     return 0;
 }
 
@@ -105,7 +108,7 @@ void insert(node **head, int item, int cible)
         tmp = tmp->next;
          // Defensive snippet
         /* Checking if the cible is the last node in the linked list. */
-        if(temp->next == NULL)
+        if(tmp->next == NULL)
         {
             fprintf(stdout,"Node unavailable after the cible chosen!!\n");
             /* It's a function that terminates the program. */
@@ -154,6 +157,22 @@ void display(node **head)
     /* Traversing the linked list. */
     for(node *tmp = *head; tmp != NULL; tmp = tmp->next)
     {
-        printf("%i\n",tmp->data);
+        printf("%i ",tmp->data);
     }
+}
+
+/* It's reversing the linked list. */
+node *reverse(node *head)
+{
+    node *prev = NULL;
+    node *curr = head;
+    node *foll = head;
+    while (curr != NULL)
+    {
+        foll = foll->next;
+        curr->next = prev;
+        prev = curr;
+        curr = foll;
+    }
+    return prev;
 }
