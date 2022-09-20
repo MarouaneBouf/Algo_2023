@@ -79,8 +79,32 @@ class Linked_list:
             i += 1
             print(f"Element {i} is {temp.data}")
             temp = temp.next
+         
+    # Reversing the linked list        
+    def reverse(self):
+        current = self.head
+        following = self.head
+        previous = None
+        while(current is not None):
+            following = following.next
+            current.next = previous
+            previous = current
+            current = following
+        self.head = previous
         
-
+    '''
+    def remove(self, item):
+        temp = self.head
+        if self.head.data == item:
+            return None
+        try:
+            while(temp.next.data != item):
+                temp = temp.next
+            temp.next = temp.next.next
+        except Exception:
+            print("Don't choose edge elements!")
+            self.head
+    '''
 
 def main():
     # Creating a new linked list.
