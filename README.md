@@ -7,3 +7,8 @@
 
 ### Algo 01: Brute Force
 > Brute force algorithm is a direct and intuitive technique that guarantees solutions for problems and also provides a solution that can serve as a benchmark for evaluating other design techniques, but takes a usually a LOT of run time and inefficient. 
+
+### Some useful ressources : 
+
+
+Linked List Reversed : https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088
