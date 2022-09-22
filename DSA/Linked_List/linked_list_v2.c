@@ -5,6 +5,7 @@
 
 
 /*
+Hello
  * A node is a structure that contains an integer and a pointer to a node.
  * @property {int} data - This is the data that the node will hold.
  * @property next - This is a pointer to the next node in the list.
