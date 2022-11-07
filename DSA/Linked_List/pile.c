@@ -17,16 +17,15 @@ point *ajouter_pile(point *tete,int x,int y, int z)
     new_point->x = x;
     new_point->y = y;
     new_point->z = z;
-    new_point->suivant = NULL;
+    // new_point->suivant = NULL;
     new_point->suivant = tete;
     tete = new_point;
     return tete;
 }    
 
-point *supprimer_et_afficher(point *tete)
+point *supprimer(point *tete)
 {
     point *temp = tete;
-    printf("x = (%i, %i, %i)\n",temp->x,temp->y,temp->z);
     tete = tete->suivant;
     free(temp);
     return tete;
@@ -49,7 +48,6 @@ int main(void)
     pile = ajouter_pile(pile, 10, 12, 19);
     pile = ajouter_pile(pile, 16, 68, 95);
     pile = ajouter_pile(pile, 3213, 21, 6586);
-    pile = supprimer_et_afficher(pile);
-    printf("------------------\n");
+    pile = supprimer(pile);
     affichage(pile);
 }
