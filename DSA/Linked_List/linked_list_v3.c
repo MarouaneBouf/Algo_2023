@@ -22,7 +22,7 @@ void display(node *list)
     node *temp = list;
     while(temp)
     {
-        fprintf(stdout,"%i\n",temp->data);
+        printf("%i\n",temp->data);
         temp = temp->next;
     }
 }
@@ -41,10 +41,10 @@ node *add_end(node *list, int data)
     return list;
 }
 
-int main(void)
+void main(void)
 {
     node *list = NULL;
-    list = add_element(list,100);
+    list = add_element(list,100); // add_element == add_debut
     list = add_element(list,120);
     list = add_end(list, 1832);
     display(list);
